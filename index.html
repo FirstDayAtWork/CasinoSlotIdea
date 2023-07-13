@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="overlay">
+        <div id="text"></div>
+      </div>
+    <div class="main">
+        <header>
+    <span id="head">Casinak by Mike</span>
+    <div class="watchandtime">
+        <div class="watch">
+        <div class="time">00:00:00</div>
+    </div>
+</header>
+<div class="output">
+    <span id="output">Welcum!</span>
+</div>
+    <div class="container">
+        <span class="digit" id="fir">0</span>
+        <span class="digit" id="two">0</span>
+        <span class="digit" id="three">0</span>
+        <!-- <span class="digit" id="four">0</span> -->
+    
+    </div>
+    
+    <div class="buttons">
+        <button class="beteen" id="startbtn">Spin</button>
+        <button class="beteen" id="resetbtn">Reset</button>
+        <button class="beteen" id="infobtn">Info</button>
+    </div>
+    <div class="cash">
+        <span id="balance">Balance :</span>
+        <span id="spinsout">SpinsOut :</span>
+        <div>
+        <span id="stawka">Bet :</span>
+        <button class="betbtn" id="plusbet">+</button>
+        <button class="betbtn" id="minusbet">-</button>
+    </div>
+        <!-- <label for="stawka">Bet:</label> -->
+    <!-- <select name="bets" id="stawka">
+        <option value="">x1</option>
+        <option value="x2">x2</option>
+        <option value="x5">x5</option>
+        <option value="x10">x10</option>
+        <option value="max">max</option>
+</select> -->
+        <span id="addmoney">TopUP</span>
+        <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <span class="close">&times;</span> -->
+        <h2>TopUP</h2>
+      </div>
+      <div class="modal-body">
+        <span id="curr-balance">Balance: </span>
+         <!-- <br>
+        <br> -->
+
+        <span id="curr-balance">Add some</span>
+        <input id="m-value" type="number" placeholder="$$$">
+      </div>
+      <div class="modal-footer">
+        <!-- <h3>Modal Footer</h3> -->
+        <button class="beteen" id="savebtn">Save</button>
+        <button class="beteen" id="exitbtn">Exit</button> 
+        
+      </div>
+    </div>
+  
+  </div>
+    </div>
+</div>
+
+    
+    <script src="app.js" ></script>
+    <!-- <script src="app2.js" type="module"></script> -->
+</body>
+</html>
