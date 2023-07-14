@@ -18,6 +18,17 @@ const moneyValue = document.getElementById('m-value');
 const saveButton = document.getElementById('savebtn');
 const exitButton = document.getElementById('exitbtn');
 
+let spinSound = new Audio("Casinak Sounds/Spin sound.wav");
+let resetSound = new Audio("Casinak Sounds/Reset.wav");
+let infoSound = new Audio("Casinak Sounds/Info.wav");
+let betSound = new Audio("Casinak Sounds/BetPlus&Minus.wav");
+let saveSound = new Audio("Casinak Sounds/SaveSound.wav");
+let exitSound = new Audio("Casinak Sounds/Exit.wav");
+let jackpotSound = new Audio("Casinak Sounds/Spin sound.wav");
+let basicWinSound = new Audio("Casinak Sounds/BasicWin.wav");
+let errorSoundOne = new Audio("Casinak Sounds/ErrorOne.wav");
+let errorSoundTwo = new Audio("Casinak Sounds/ErrorTwo.wav");
+
 // show info  /////////////////////////////////////////
 infoButton.addEventListener('click', showInfo);
 infoButton.addEventListener('blur', showInfo);
@@ -26,6 +37,7 @@ infoButton.addEventListener('blur', showInfo);
 
 
 function showInfo(){
+    infoSound.play();
     if (overLay.style.display === 'block'){
         overLay.style.display = 'none';
     } else {
@@ -37,6 +49,7 @@ function showInfo(){
 
 startButton.addEventListener('click', findEqualNumbers);
 resetButton.addEventListener('click', () => {
+    resetSound.play();
     startButton.addEventListener('click', findEqualNumbers);
     ResetStart();
     clearTimeout(firstInt);
@@ -51,19 +64,24 @@ resetButton.addEventListener('click', () => {
 
 function ResetStart(){
     if(playerThings.balance >= 10 && count == 0){
+        spinSound.volume = 1;
         startButton.disabled = false;
         console.log(playerThings.balance);
     } else if (playerThings.balance >= 20 && count == 1){
+        spinSound.volume = 1;
         startButton.disabled = false;
         console.log(playerThings.balance);
     } else if (playerThings.balance >= 50 && count == 2){
+        spinSound.volume = 1;
         startButton.disabled = false;
         console.log(playerThings.balance);
     } else if(playerThings.balance >= 100 && count == 3){
+        spinSound.volume = 1;
         startButton.disabled = false;
         console.log(playerThings.balance);
     
     } else if(playerThings.balance >= 10 && count == 4){
+        spinSound.volume = 1;
         startButton.disabled = false;
         console.log(playerThings.balance);
     }
@@ -75,7 +93,7 @@ let thirdNum;
 
 
 function findEqualNumbers(){
-    
+    spinSound.play();
     firstInt = setInterval(generetePass, 10);
     balanceInandOut();
  }
@@ -131,29 +149,26 @@ minusBet.addEventListener('click', decreaseBet);
 let count = betX[0]-1;
 console.log(count);
 function increaseBet() {
-    console.log(count);
+    betSound.play();
+    // console.log(count);
   switch (count) {
     case 0:
         count++;
         playerStawka.innerText = `Bet :${betX[count]}`;
-        console.log(count);
         break;
   case 1:
     count++;
     playerStawka.innerText = `Bet :${betX[count]}`;
-    console.log(count);
     break;
 
     case 2:
         count++;
         playerStawka.innerText = `Bet :${betX[count]}`;
-        console.log(count);
         break;
 
     case 3:
         count++;
         playerStawka.innerText = `Bet :${betX[count]}`;
-        console.log(count);
         break;
 
     case 4:
@@ -168,39 +183,33 @@ function increaseBet() {
 console.log(count);
 // let decount = betX[count]-1;
 // console.log(decount)
-function decreaseBet(){ 
-    console.log(count);
+function decreaseBet(){
+    betSound.play(); 
+    // console.log(count);
     switch (count) {
         case 0:
-            // return;
-            console.log(count);
             break;
       case 1:
         count--;
         playerStawka.innerText = `Bet :${betX[count]}`;
-        console.log(count);
         break;
     
         case 2:
             count--;
             playerStawka.innerText = `Bet :${betX[count]}`;
-            console.log(count);
             break;
     
         case 3:
             count--;
             playerStawka.innerText = `Bet :${betX[count]}`;
-            console.log(count);
             break;
     
         case 4:
             count--;
             playerStawka.innerText = `Bet :${betX[count]}`;
-            console.log(count);
             break;
         case 5:
             playerStawka.innerText = `Bet :${betX[count]}`;
-            console.log(count);
             break;
     
         default: console.log('eto defaul detka 2');
@@ -289,30 +298,40 @@ function balanceInandOut(){
 
 function checkBet(){
     if(playerThings.balance < 10 && count == 0){
+        spinSound.volume = 0;
+        errorSoundOne.play();
         stopGeneration();
         reset();
         startButton.disabled = true;
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 20 && count == 1){
+        spinSound.volume = 0;
+        errorSoundOne.play();
         stopGeneration();
         reset();
         startButton.disabled = true;
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 50 && count == 2){
+        spinSound.volume = 0;
+        errorSoundOne.play();
         stopGeneration();
         reset();
         startButton.disabled = true;
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 100 && count == 3){
+        spinSound.volume = 0;
+        errorSoundOne.play();
         stopGeneration();
         reset();
         startButton.disabled = true;
                 console.log('NADO ESHE DENEG');
                 return;
     } else if (playerThings.balance == 0 && count == 4){
+        spinSound.volume = 0;
+        errorSoundOne.play();
         stopGeneration();
         reset();
         startButton.disabled = true;
@@ -366,50 +385,62 @@ ${specialW2} = 1000$
 
 function slotLogic(){
 if(`${firstNum}${secondNum}${thirdNum}` == jackpot){
+    jackpotSound.play();
     playerThings.balance += 77777;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "JAck POT 777!";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW){
+    basicWinSound.play();
     playerThings.balance += 100;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win 100$!";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW2){
+    basicWinSound.play();
     playerThings.balance += 200;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 200$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW3){
+    basicWinSound.play();
     playerThings.balance += 300;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 300$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW4){
+    basicWinSound.play();
     playerThings.balance += 400;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 400$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW5){
+    basicWinSound.play();
     playerThings.balance += 500;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 500$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW6){
+    basicWinSound.play();
     playerThings.balance += 666;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "Ebat Ti Chert!";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW7){
+    basicWinSound.play();
     playerThings.balance += 800;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 800$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW8){
+    basicWinSound.play();
     playerThings.balance += 900;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 900$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == basicW9){
+    basicWinSound.play();
     playerThings.balance += 1000;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 1000$";
 } else if (`${firstNum}${secondNum}${thirdNum}` == specialW){
+    basicWinSound.play();
     playerThings.balance += 2000;
     playerThings.spins = Math.floor(playerThings.balance/10);
         outputText.innerText = "$322$!";
 } else if (`${firstNum}${secondNum}${thirdNum}` == specialW2){
+    basicWinSound.play();
     playerThings.balance += 1000;
     playerThings.spins = Math.floor(playerThings.balance/10);
             outputText.innerText = "OYY EEaA +1000$!!";
@@ -424,6 +455,9 @@ if(`${firstNum}${secondNum}${thirdNum}` == jackpot){
 const modal = document.getElementById("myModal");
 addMoney.addEventListener('click', showPopUp);
 
+addMoney.addEventListener('click', () => {
+infoSound.play();
+});
 
 function showPopUp(){
     modal.style.display = 'block';
@@ -442,6 +476,14 @@ function showPopUp(){
 saveButton.addEventListener('click', saveMoneyToBalance);
 exitButton.addEventListener('click', exitPopUp);
 
+saveButton.addEventListener('click', () => {
+saveSound.play();
+});
+
+exitButton.addEventListener('click', () => {
+    exitSound.play();
+});
+
 function saveMoneyToBalance(){
     playerThings.balance = +playerThings.balance + +moneyValue.value;
     playerThings.spins = Math.floor(playerThings.balance/10);
@@ -453,6 +495,7 @@ function saveMoneyToBalance(){
    playerBalance.innerText = `Balance :${playerThings.balance}`;
     playerSpins.innerText = `SpinsOut :${playerThings.spins}`;
    if(playerThings.balance >= 10){
+    spinSound.volume = 1;
     startButton.disabled = false;
    }
     exitPopUp();
