@@ -236,8 +236,9 @@ playerSpins.innerText += playerThings.spins;
 // + & -
 function balanceInandOut(){
     checkBet();
+    
   bal = setTimeout(() => {
-        
+    let sumOfCasik = `${firstNum}${secondNum}${thirdNum}`;
         if(playerThings.balance > 0 && playerThings.spins > 0 && count == 0){
             if(playerThings.balance < 10 && count == 0){
                 return;
@@ -280,12 +281,20 @@ function balanceInandOut(){
                     }
             }   else if (playerThings.balance > 0 && playerThings.spins > 0
                 && count == 4){
+                    if(sumOfCasik == basicW || sumOfCasik == basicW2 || sumOfCasik == basicW3
+                        || sumOfCasik == basicW4 || sumOfCasik == basicW5 || sumOfCasik == basicW6
+                        || sumOfCasik == basicW7 || sumOfCasik == basicW8 || sumOfCasik == basicW9
+                        || sumOfCasik == specialW || sumOfCasik == specialW2 || sumOfCasik == jackpot){
+                        playerBalance.innerText = `Balance :${playerThings.balance}`;
+                        playerSpins.innerText = `SpinsOut :${playerThings.spins}`;  
+                    } else {
                 playerThings.balance -= playerThings.balance;
                 playerThings.spins -= playerThings.spins;
                 playerBalance.innerText = `Balance :${playerThings.balance}`;
                 playerSpins.innerText = `SpinsOut :${playerThings.spins}`;            
 
-
+                    console.log(playerThings.balance);
+                    }
               } else if (playerThings.balance == 0 && playerThings.spins == 0){
             // startButton.removeEventListener('click', findEqualNumbers);
             //  outputText.innerText = "U HAVE NO MONEY!!";
@@ -384,66 +393,320 @@ ${specialW2} = 1000$
 <p/>`
 
 function slotLogic(){
-if(`${firstNum}${secondNum}${thirdNum}` == jackpot){
+    let sumOfNumbers = `${firstNum}${secondNum}${thirdNum}`;
+if(sumOfNumbers == jackpot){
     jackpotSound.play();
     playerThings.balance += 77777;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "JAck POT 777!";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW){
+} else if (sumOfNumbers == basicW){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 100 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 140$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 100 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 200$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 100 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 300$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 100;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+    } else {
     basicWinSound.play();
     playerThings.balance += 100;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win 100$!";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW2){
+    }
+} else if (sumOfNumbers == basicW2){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 200 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 240$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 200 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 300$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 200 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 400$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 200;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 200$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW3){
+    }
+} else if (sumOfNumbers == basicW3){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 300 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 340$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 300 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 400$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 300 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 500$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 300;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 300;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 300$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW4){
+     }
+} else if (sumOfNumbers == basicW4){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 400 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 440$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 400 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 500$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 400 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 600$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 400;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 400;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 400$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW5){
+     }
+} else if (sumOfNumbers == basicW5){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 500 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 540$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 500 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 600$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 500 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 700$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 500;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 500;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 500$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW6){
+     }
+} else if (sumOfNumbers == basicW6){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 666 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 706$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 666 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 766$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 666 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 866$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 666;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 666;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "Ebat Ti Chert!";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW7){
+     }
+} else if (sumOfNumbers == basicW7){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 800 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 840$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 800 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 900$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 800 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1000$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 800;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 800;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 800$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW8){
+     }
+} else if (sumOfNumbers == basicW8){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 900 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 940$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 900 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 10000$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 800 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1000$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 900;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 900;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 900$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == basicW9){
+     }
+} else if (sumOfNumbers == basicW9){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 1000 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1040$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 1000 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 1100$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 1000 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1200$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 1000;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 1000;
     playerThings.spins = Math.floor(playerThings.balance/10);
     outputText.innerText = "You Win! 1000$";
-} else if (`${firstNum}${secondNum}${thirdNum}` == specialW){
+     }
+} else if (sumOfNumbers == specialW){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 2000 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 2040$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 2000 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 2100$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 2000 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 2200$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 2000;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 2000;
     playerThings.spins = Math.floor(playerThings.balance/10);
         outputText.innerText = "$322$!";
-} else if (`${firstNum}${secondNum}${thirdNum}` == specialW2){
+     }
+} else if (sumOfNumbers == specialW2){
+    if(count == 1){
+        basicWinSound.play();
+        playerThings.balance += 1000 + 40;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1040$!";
+    } else if (count == 2){
+        basicWinSound.play();
+    playerThings.balance += 1000 + 100;
+    playerThings.spins = Math.floor(playerThings.balance/10);
+    outputText.innerText = "You Win 1100$!";
+    } else if (count == 3){
+        basicWinSound.play();
+        playerThings.balance += 1000 + 200;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = "You Win 1200$!";
+    } else if(count == 4){
+        basicWinSound.play();
+        playerThings.balance = playerThings.balance*2 + 1000;
+        playerThings.spins = Math.floor(playerThings.balance/10);
+        outputText.innerText = `You Win ${playerThings.balance}$`;
+        console.log(playerThings.balance);
+     } else {
     basicWinSound.play();
     playerThings.balance += 1000;
     playerThings.spins = Math.floor(playerThings.balance/10);
             outputText.innerText = "OYY EEaA +1000$!!";
+     }
 } else {
     outputText.innerText = "=(";
 }
@@ -476,15 +739,18 @@ function showPopUp(){
 saveButton.addEventListener('click', saveMoneyToBalance);
 exitButton.addEventListener('click', exitPopUp);
 
-saveButton.addEventListener('click', () => {
-saveSound.play();
-});
+
 
 exitButton.addEventListener('click', () => {
     exitSound.play();
 });
 
 function saveMoneyToBalance(){
+    if(+moneyValue.value <= 0){
+        errorSoundTwo.play();
+        return;
+    } else {
+        saveSound.play();
     playerThings.balance = +playerThings.balance + +moneyValue.value;
     playerThings.spins = Math.floor(playerThings.balance/10);
     // playerSpins.innerText += playerThings.spins;
@@ -494,6 +760,7 @@ function saveMoneyToBalance(){
    console.log(playerThings.spins) ;
    playerBalance.innerText = `Balance :${playerThings.balance}`;
     playerSpins.innerText = `SpinsOut :${playerThings.spins}`;
+    }
    if(playerThings.balance >= 10){
     spinSound.volume = 1;
     startButton.disabled = false;
