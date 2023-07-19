@@ -98,9 +98,9 @@ function findEqualNumbers(){
     balanceInandOut();
  }
 
- numberOne.innerHTML = `<img src=\"Casinak Pics2/1.jpg\" width=\"130px\" height=\"130px\">`;
- numberTwo.innerHTML = `<img src=\"Casinak Pics2/2.jpg\" width=\"130px\" height=\"130px\">`;
- numberThree.innerHTML = `<img src=\"Casinak Pics2/3.jpg\" width=\"130px\" height=\"130px\">`;
+ numberOne.innerHTML = `<img src=\"Casinak Pics2/8.jpg\" width=\"130px\" height=\"130px\">`;
+ numberTwo.innerHTML = `<img src=\"Casinak Pics2/5.jpg\" width=\"130px\" height=\"130px\">`;
+ numberThree.innerHTML = `<img src=\"Casinak Pics2/2.jpg\" width=\"130px\" height=\"130px\">`;
  
 //  `url('Casinak Pics/${firstNum}.jpg`;
 function generetePass(){
@@ -750,7 +750,7 @@ exitButton.addEventListener('click', () => {
 });
 
 function saveMoneyToBalance(){
-    if(+moneyValue.value <= 0){
+    if(+moneyValue.value <= 0 || +moneyValue.value > 999999){
         errorSoundTwo.play();
         return;
     } else {
