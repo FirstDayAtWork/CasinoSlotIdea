@@ -98,7 +98,11 @@ function findEqualNumbers(){
     balanceInandOut();
  }
 
-
+ numberOne.innerHTML = `<img src=\"Casinak Pics2/1.jpg\" width=\"130px\" height=\"130px\">`;
+ numberTwo.innerHTML = `<img src=\"Casinak Pics2/2.jpg\" width=\"130px\" height=\"130px\">`;
+ numberThree.innerHTML = `<img src=\"Casinak Pics2/3.jpg\" width=\"130px\" height=\"130px\">`;
+ 
+//  `url('Casinak Pics/${firstNum}.jpg`;
 function generetePass(){
     
     outputText.innerText = "";
@@ -115,9 +119,9 @@ function generetePass(){
         firstNum = Math.floor(Math.random() * 9) + 1;
         secondNum = Math.floor(Math.random() * 9) + 1;
         thirdNum = Math.floor(Math.random() * 9) + 1;
-        numberOne.innerHTML = firstNum;
-        numberTwo.innerHTML = secondNum;
-        numberThree.innerHTML = thirdNum;
+        numberOne.innerHTML = `<img src=\"Casinak Pics2/${firstNum}.jpg\" width=\"130px\" height=\"130px\">`;
+        numberTwo.innerHTML = `<img src=\"Casinak Pics2/${secondNum}.jpg\" width=\"130px\" height=\"130px\">`;
+        numberThree.innerHTML = `<img src=\"Casinak Pics2/${thirdNum}.jpg\" width=\"130px\" height=\"130px\">`;
         console.log('logic2')
     } 
     if(playerThings.balance == 0 && playerThings.spins == 0){
