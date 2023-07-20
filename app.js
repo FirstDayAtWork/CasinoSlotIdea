@@ -117,12 +117,12 @@ function findEqualNumbers(){
  
 //  `url('Casinak Pics/${firstNum}.jpg`;
 function generetePass(){
-    
+    startButton.disabled = true;
     outputText.innerText = "";
     startButton.removeEventListener('click', findEqualNumbers);
     checkBet();
    if(seconds == 2){
-        
+        startButton.disabled = false;
         stopGeneration();
         // stop();
         reset();
@@ -391,29 +391,29 @@ const specialW2 = 228;
 
 
 document.getElementById('text').innerHTML = `
-${jackpot} = 77777$
+<img src=\"Casinak Pics2/7.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/7.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/7.jpg\" width=\"50px\" height=\"50px\"> = 77777$
 <br>
-${basicW} = 100$
+<img src=\"Casinak Pics2/1.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/1.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/1.jpg\" width=\"50px\" height=\"50px\"> = 100$
 <br>
-${basicW2} = 200$
+<img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"> = 200$
 <br>
-${basicW3} = 300$
+<img src=\"Casinak Pics2/3.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/3.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/3.jpg\" width=\"50px\" height=\"50px\"> = 300$
 <br>
-${basicW4} = 400$
+<img src=\"Casinak Pics2/4.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/4.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/4.jpg\" width=\"50px\" height=\"50px\"> = 400$
 <br>
-${basicW5} = 500$
+<img src=\"Casinak Pics2/5.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/5.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/5.jpg\" width=\"50px\" height=\"50px\"> = 500$
 <br>
-${basicW6} = 666$
+<img src=\"Casinak Pics2/6.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/6.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/6.jpg\" width=\"50px\" height=\"50px\"> = 666$
 <br>
-${basicW7} = 800$
+<img src=\"Casinak Pics2/8.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/8.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/8.jpg\" width=\"50px\" height=\"50px\"> = 800$
 <br>
-${basicW8} = 900$
+<img src=\"Casinak Pics2/9.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/9.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/9.jpg\" width=\"50px\" height=\"50px\"> = 900$
 <br>
-${basicW9} = 1000$
+<img src=\"Casinak Pics2/9.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/1.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/1.jpg\" width=\"50px\" height=\"50px\"> = 1000$
 <br>
-${specialW} = 2000$
+<img src=\"Casinak Pics2/3.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"> = 2000$
 <br>
-${specialW2} = 1000$
+<img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/2.jpg\" width=\"50px\" height=\"50px\"><img src=\"Casinak Pics2/8.jpg\" width=\"50px\" height=\"50px\"> = 1000$
 <p/>`
 
 function slotLogic(){
