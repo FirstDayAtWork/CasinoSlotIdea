@@ -48,6 +48,19 @@ function showInfo(){
 ///////////////////////////////////////
 
 startButton.addEventListener('click', findEqualNumbers);
+startButton.addEventListener('click', disableBetButtons);
+
+function disableBetButtons(){
+    plusBet.disabled = true;
+    minusBet.disabled = true
+}
+
+function enabledBetButtons(){
+    plusBet.disabled = false;
+    minusBet.disabled = false
+
+}
+
 resetButton.addEventListener('click', () => {
     resetSound.play();
     startButton.addEventListener('click', findEqualNumbers);
@@ -57,9 +70,9 @@ resetButton.addEventListener('click', () => {
     firstNum = 0;
     secondNum = 0;
     thirdNum = 0;
-    numberOne.innerHTML = 0;
-    numberTwo.innerHTML = 0;
-    numberThree.innerHTML = 0;
+    numberOne.innerHTML = `<img src=\"Casinak Pics2/8.jpg\" width=\"130px\" height=\"130px\">`;
+    numberTwo.innerHTML = `<img src=\"Casinak Pics2/5.jpg\" width=\"130px\" height=\"130px\">`;
+    numberThree.innerHTML = `<img src=\"Casinak Pics2/2.jpg\" width=\"130px\" height=\"130px\">`;
 })
 
 function ResetStart(){
@@ -109,10 +122,12 @@ function generetePass(){
     startButton.removeEventListener('click', findEqualNumbers);
     checkBet();
    if(seconds == 2){
+        
         stopGeneration();
         // stop();
         reset();
         slotLogic();
+        enabledBetButtons();
         console.log('logic1')
     } else {
         startButton.addEventListener('click', start);
@@ -316,6 +331,7 @@ function checkBet(){
         stopGeneration();
         reset();
         startButton.disabled = true;
+        enabledBetButtons();
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 20 && count == 1){
@@ -324,6 +340,7 @@ function checkBet(){
         stopGeneration();
         reset();
         startButton.disabled = true;
+        enabledBetButtons();
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 50 && count == 2){
@@ -332,6 +349,7 @@ function checkBet(){
         stopGeneration();
         reset();
         startButton.disabled = true;
+        enabledBetButtons();
                 console.log('NADO ESHE DENEG');
                 return;
     } else if(playerThings.balance < 100 && count == 3){
@@ -340,6 +358,7 @@ function checkBet(){
         stopGeneration();
         reset();
         startButton.disabled = true;
+        enabledBetButtons();
                 console.log('NADO ESHE DENEG');
                 return;
     } else if (playerThings.balance == 0 && count == 4){
@@ -348,6 +367,7 @@ function checkBet(){
         stopGeneration();
         reset();
         startButton.disabled = true;
+        enabledBetButtons();
                 console.log('NADO ESHE DENEG');
                 return;
 
@@ -768,6 +788,7 @@ function saveMoneyToBalance(){
    if(playerThings.balance >= 10){
     spinSound.volume = 1;
     startButton.disabled = false;
+    enabledBetButtons();
    }
     exitPopUp();
 
